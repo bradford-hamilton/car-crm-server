@@ -1,0 +1,21 @@
+# Logs
+logs
+
+*.log
+npm-debug.log*
+
+dist/
+
+# Dependency directories
+node_modules
+jspm_packages
+.DS_Store
+.env
+
+# Optional npm cache directory
+.npm
+
+.vscode
+/.idea
+reports/
+stats.json
