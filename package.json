@@ -17,7 +17,7 @@
     "build": "npm run clean && babel . -d dist --ignore node_modules, test",
     "clean": "rm -rf dist && mkdir dist",
     "test": "npm run lint && npm run tests",
-    "lint": "./node_modules/.bin/eslint src/**/*.js src/**/*.jsx",
+    "lint": "./node_modules/.bin/eslint src/**/*.js db/**/*.js",
     "tests": "NODE_ENV=test mocha -R nyan --compilers js:babel-register $(find test -name '*.test.js')"
   },
   "directories": {
