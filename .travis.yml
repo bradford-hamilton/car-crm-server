@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "7.0"
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database car_cms_test;' -U postgres
+install:
+  - npm install -g knex
+  - npm install
+script:
+  - npm test

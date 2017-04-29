@@ -21,7 +21,7 @@ module.exports = {
 
   staging: {
     client: 'pg',
-    connection: 'postgres://'+encodeURIComponent(process.env.RDS_USERNAME)+':'+encodeURIComponent(process.env.RDS_PASSWORD)+'@'+encodeURIComponent(process.env.RDS_HOSTNAME)+':'+process.env.RDS_PORT+'/'+process.env.RDS_DB_NAME,
+    connection: '',
     migrations: {
       directory: __dirname + '/db/migrations'
     },
@@ -43,7 +43,7 @@ module.exports = {
 
   production: {
     client: 'pg',
-    connection: 'postgres://'+encodeURIComponent(process.env.RDS_USERNAME)+':'+encodeURIComponent(process.env.RDS_PASSWORD)+'@'+encodeURIComponent(process.env.RDS_HOSTNAME)+':'+process.env.RDS_PORT+'/'+process.env.RDS_DB_NAME,
+    connection: '',
     migrations: {
       directory: __dirname + '/db/migrations'
     },
