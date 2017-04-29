@@ -7,16 +7,18 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/bradford-hamilton/car-crm-server.git"
   },
   "engines": {
     "node": "7.9.0"
   },
   "scripts": {
     "start": "node dist/src/server.js",
-    "clean": "rm -rf dist && mkdir dist",
     "build": "npm run clean && babel . -d dist --ignore node_modules, test",
-    "test": "NODE_ENV=test mocha -R nyan --compilers js:babel-register $(find test -name '*.test.js')"
+    "clean": "rm -rf dist && mkdir dist",
+    "test": "npm run lint && npm run tests",
+    "lint": "./node_modules/.bin/eslint src/**/*.js src/**/*.jsx",
+    "tests": "NODE_ENV=test mocha -R nyan --compilers js:babel-register $(find test -name '*.test.js')"
   },
   "directories": {
     "test": "test"
@@ -47,6 +49,9 @@
     "babel-cli": "6.24.1",
     "babel-preset-es2015": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-import": "^2.2.0",
     "mocha": "3.3.0"
   }
 }
