@@ -5,3 +5,6 @@
 ### Run `npm start` to start server running the dist directory
 
 ### Run `npm test` to run the tests
+
+### Run `./node_modules/.bin/eslint src/**/*.js` to run eslint linter against`
+ - Run `./node_modules/.bin/eslint src/**/*.js --fix` to auto-correct ones that have the ability to be corrected automatically

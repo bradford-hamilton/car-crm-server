@@ -1,17 +1,11 @@
-'use strict';
-
-import axios from 'axios';
+// import axios from 'axios';
 import DB from '../lib/db';
 
 class Users {
   static getAllUsers() {
     return DB.getAllUsers()
-      .then(data => {
-        return data;
-      })
-      .catch(err => {
-        return err;
-      });
+      .then(data => data)
+      .catch(err => err);
   }
 }
 
