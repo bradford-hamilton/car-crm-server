@@ -1,15 +1,10 @@
 language: node_js
-sudo: false
 node_js:
   - "7.0"
 services:
   - postgresql
-postgres:
-  adapter: postgresql
-  database: car-cms-test
-  username: postgres
 before_script:
-  - psql -c 'create database car-cms-test;' -U postgres
+  - psql -c 'create database car_cms_test;' -U postgres
 install:
   - npm install -g knex
   - npm install
