@@ -11,7 +11,7 @@ var app = express();
 
 var dotenv = require('dotenv');
 var environment = process.env.NODE_ENV || 'development';
-if (environment == 'development' || environment == 'test') {
+if (environment == 'development' || environment == 'testing') {
   dotenv.config();
 }
 
