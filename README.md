@@ -1,12 +1,54 @@
+# Car CRM
+
 [![build Status](https://travis-ci.org/bradford-hamilton/car-crm-server.svg?branch=master)](https://travis-ci.org/bradford-hamilton/car-crm-server)
 
-### Run `npm install`
+### Development Environment
+Install knex globally:
+```
+npm install -g knex
+```
 
-### Run `npm run build` to transpile and build to dist directory
+Install Dependencies:
+```
+npm install
+```
 
-### Run `npm start` to start server running the dist directory
+Transpile JavaScripts and Build to /dist Directory:
+```
+npm run build
+```
 
-### Run `npm test` to run the tests
+Start Server (port 3000):
+```
+npm start
+```
 
-### Run `./node_modules/.bin/eslint src/**/*.js` to run eslint linter against`
- - Run `./node_modules/.bin/eslint src/**/*.js --fix` to auto-correct ones that have the ability to be corrected automatically
+### DB Setup
+- Make sure you have PostgreSQL set up
+
+Create databases:
+```
+createdb car_crm_dev
+createdb car_crm_test
+```
+
+Migrate databases:
+```
+knex migrate:latest --env development
+knex migrate:latest --env test
+
+```
+
+Seed databases:
+```
+knex seed:run --env development
+knex seed:run --env test
+
+```
+
+### Testing
+Run: `npm test` to run the linter followed by the tests
+ - Run `./node_modules/.bin/eslint . --fix` to auto-correct linting errors that have the ability to be corrected automatically
+
+### Deployment
+- TBD
