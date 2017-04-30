@@ -1,21 +1,19 @@
-'use strict';
-
 import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
-
 import routes from './routes/routes';
 
-var app = express();
+const dotenv = require('dotenv');
 
-var dotenv = require('dotenv');
-var environment = process.env.NODE_ENV || 'development';
-if (environment == 'development' || environment == 'testing') {
+const app = express();
+
+const environment = process.env.NODE_ENV || 'development';
+if (environment === 'development' || environment === 'testing') {
   dotenv.config();
 }
 
-app.get('/robots.txt', function(req, res, next) {
+app.get('/robots.txt', (req, res) => {
   res.type('text/plain');
   if (environment === 'production') {
     res.send('User-agent: *\nDisallow:');
@@ -27,11 +25,11 @@ app.get('/robots.txt', function(req, res, next) {
 app.use(cookieParser());
 app.use(morgan('combined'));
 app.use(bodyParser.json());
-app.use(bodyParser.json({type: 'application/*'}));
+app.use(bodyParser.json({ type: 'application/*' }));
 
 routes.init(app);
 
-app.use(function(req, res, next){
+app.use((req, res) => {
   res.status(404);
   res.send({ error: 'Not found' });
 });

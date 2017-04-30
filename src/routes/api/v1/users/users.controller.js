@@ -1,21 +1,19 @@
-'use strict';
-
 import Users from '../../../../lib/users';
 
 function getAll(req, res) {
   Users.getAllUsers()
-    .then(users => {
+    .then((users) => {
       res.status(200).json({
-        users: users
+        users,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(400).json({
-        err: err
+        err,
       });
     });
 }
 
 export default {
-  getAll: getAll
-}
+  getAll,
+};

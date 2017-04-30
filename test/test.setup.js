@@ -1,5 +1,3 @@
-'use strict';
-
 import chai from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -14,4 +12,4 @@ module.exports = function () {
   chai.use(sinonChai);
   chai.use(chaiAsPromised);
   chai.should();
-}
+};
