@@ -13,7 +13,7 @@ Install Dependencies:
 npm install
 ```
 
-Transpile JavaScripts and Build to /dist Directory:
+Transpile JavaScripts and Build to `/dist` Directory:
 ```
 npm run build
 ```
@@ -22,6 +22,10 @@ Start Server (port 3000):
 ```
 npm start
 ```
+
+- While developing, use `gulp watch` to start the server. Any change you make inside of `src/` (when saved) will trigger a rebuild (and babel transpile) into `dist/src`. Server will start back up automatically.
+
+- If things get funky, just run an `npm run build` and it will remove `dist/` and rebuild the whole project back into `dist/` directory.
 
 ### DB Setup
 - Make sure you have PostgreSQL set up
