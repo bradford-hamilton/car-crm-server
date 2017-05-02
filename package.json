@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "axios": "0.16.1",
+    "bcrypt": "^1.0.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "1.17.1",
     "chai": "3.5.0",
@@ -53,7 +54,7 @@
     "gulp-util": "3.0.7",
     "jsonwebtoken": "7.4.0",
     "knex": "0.12.9",
-    "lodash": "4.17.4",
+    "lodash": "^4.17.4",
     "moment": "2.18.1",
     "morgan": "1.8.1",
     "nodemailer": "4.0.1",
