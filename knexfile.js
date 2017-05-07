@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 
 const environment = process.env.NODE_ENV || 'development';
-if (environment === 'development' || environment === 'testing') {
+if (environment === 'development' || environment === 'test') {
   dotenv.config();
 }
 

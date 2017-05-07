@@ -1,7 +1,8 @@
 exports.up = function (knex) {
   return knex.schema.createTable('jobs', (table) => {
     table.increments();
-    table.timestamps();
+    table.timestamp('created_at').notNullable().defaultTo(knex.fn.now());
+    table.timestamp('updated_at').notNullable().defaultTo(knex.fn.now());
     table.integer('hours').notNullable();
     table.integer('price').notNullable();
     table.text('miles').notNullable();
