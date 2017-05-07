@@ -18,7 +18,7 @@ Transpile JavaScripts and Build to `/dist` Directory:
 npm run build
 ```
 
-Start Server (port 3000):
+Start Server (port 3001):
 ```
 npm start
 ```
