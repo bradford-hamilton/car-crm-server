@@ -1,5 +1,3 @@
-import jwt from 'jsonwebtoken';
-
 import Auth from '../../../../lib/auth';
 import Persons from '../../../../lib/persons';
 
@@ -7,22 +5,18 @@ function createPerson(req, res) {
   return Persons.findPersonByUserName(req.body)
     .then((person) => {
       if (person[0]) {
-        return res.status(200)
-          .json({ err: 'user name taken try another name' });
+        throw new Error('user name taken try another name');
       }
-      return Persons.createPerson(req.body)
-        .then((data) => {
-          res.status(200).json({
-            personId: data[0],
-            msg: 'Person inserted succesfully!',
-          });
-        })
-        .catch((err) => {
-          res.status(400).json(err);
-        });
+      return Persons.createPerson(req.body);
+    })
+    .then((data) => {
+      res.status(200).json({
+        personId: data[0],
+        msg: 'Person inserted succesfully!',
+      });
     })
     .catch((err) => {
-      res.status(400).json(err);
+      res.status(400).json(err.toString());
     });
 }
 
@@ -41,19 +35,12 @@ function login(req, res) {
       if (!data) {
         throw new Error('Passwords did not match.');
       }
+      return Auth.signJwt(currentPerson, process.env.TOKEN_SECRET, { expiresIn: '1d' });
     })
-    .then(() => {
-      jwt.sign(currentPerson, process.env.TOKEN_SECRET, { expiresIn: '1d' },
-      (err, token) => {
-        if (err) {
-          return res.status(400).json(err);
-        }
-        return res.status(200).json({
-          person: currentPerson.id,
-          token,
-        });
-      });
-    })
+    .then(token => res.status(200).json({
+      person: currentPerson.id,
+      token,
+    }))
     .catch((err) => {
       res.status(200).json(err.toString());
     });

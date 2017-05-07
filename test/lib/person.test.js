@@ -6,7 +6,6 @@ describe('Persons Class', () => {
   describe('#getAllPersons', () => {
     it('gets all persons', () => Persons.getAllPersons()
       .then((results) => {
-        console.log(results);
         expect(results).to.exist
       },
       function (err) {

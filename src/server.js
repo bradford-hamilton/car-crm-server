@@ -2,12 +2,12 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
+
 import routes from './routes/routes';
 
 const dotenv = require('dotenv');
 
 const app = express();
-
 const environment = process.env.NODE_ENV || 'development';
 if (environment === 'development' || environment === 'testing') {
   dotenv.config();

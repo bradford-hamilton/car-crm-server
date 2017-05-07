@@ -1,5 +1,6 @@
 import Bcrypt from '../lib/bcrypt';
 import DB from '../lib/db';
+import Jwt from '../lib/jwt';
 
 class Auth {
   static hashPassword(person) {
@@ -9,15 +10,16 @@ class Auth {
       .then(salt => Bcrypt.hash(newPerson.password, salt))
       .then((hash) => {
         newPerson.password = hash;
-
         return DB.createPerson(newPerson);
-      })
-      .then(data => data)
-      .catch(err => err);
+      });
   }
 
   static compareHash(plainTextPassword, hashedPassword) {
     return Bcrypt.compare(plainTextPassword, hashedPassword);
+  }
+
+  static signJwt(person, tokenSecret, expiration) {
+    return Jwt.sign(person, tokenSecret, expiration);
   }
 }
 
