@@ -34,4 +34,4 @@ app.use((req, res) => {
   res.send({ error: 'Not found' });
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3001);
