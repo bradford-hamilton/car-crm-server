@@ -4,9 +4,11 @@ node_js:
 services:
   - postgresql
 before_script:
-  - psql -c 'create database car_cms_test;' -U postgres
+  - psql -c 'create database car_crm_test;' -U postgres
 install:
   - npm install -g knex
   - npm install
 script:
+  - knex migrate:latest --env test
+  - knex seed:run --env test
   - npm test
