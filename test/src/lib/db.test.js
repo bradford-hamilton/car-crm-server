@@ -1,6 +1,6 @@
-import DB from '../../src/lib/db';
+import DB from '../../../src/lib/db';
 
-require('../test.setup')();
+require('../../test.setup')();
 
 describe('DB Class', () => {
   // describe('#getAllUsers', () => {

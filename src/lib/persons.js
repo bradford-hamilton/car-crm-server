@@ -16,8 +16,8 @@ class Persons {
       .catch(err => err);
   }
 
-  static getPerson(person) {
-    return DB.getPerson(person)
+  static getPerson(id) {
+    return DB.getPerson(id)
       .then(data => data)
       .catch(err => err);
   }
@@ -28,8 +28,8 @@ class Persons {
       .catch(err => err);
   }
 
-  static deletePerson(person) {
-    return DB.deletePerson(person)
+  static deletePerson(id) {
+    return DB.deletePerson(id)
       .then(data => data)
       .catch(err => err);
   }
