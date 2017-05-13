@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 
+import Auth from './lib/auth';
 import routes from './routes/routes';
 
 const dotenv = require('dotenv');
@@ -26,6 +27,7 @@ app.use(cookieParser());
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/*' }));
+app.use(Auth.verify);
 
 routes.init(app);
 

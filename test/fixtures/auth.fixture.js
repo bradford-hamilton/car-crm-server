@@ -12,4 +12,17 @@ const authPerson = {
   'role_id': 1
 }
 
+const mockRequest = {
+  url: '/api/v1/persons/login',
+  headers: {
+    auth: 'Bearer jlksdjfklsgsdfhsdgfdj'
+  }
+}
+
+const nextMock = function() {
+  return 'called next()';
+}
+
 export { authPerson };
+export { mockRequest };
+export { nextMock };
