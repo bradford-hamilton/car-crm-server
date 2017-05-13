@@ -53,7 +53,7 @@ function getPerson(req, res) {
       res.status(200).json(person);
     })
     .catch((err) => {
-      res.status(400).json(err);
+      res.status(400).json(err.toString());
     });
 }
 
@@ -62,7 +62,7 @@ function getAll(req, res) {
     .then((persons) => {
       res.status(200).json(persons);
     }).catch((err) => {
-      res.status(400).json(err);
+      res.status(400).json(err.toString());
     });
 }
 
@@ -71,7 +71,7 @@ function updatePerson(req, res) {
     .then((person) => {
       res.status(200).json(person);
     }).catch((err) => {
-      res.status(400).json(err);
+      res.status(400).json(err.toString());
     });
 }
 
@@ -80,7 +80,7 @@ function deletePerson(req, res) {
     .then((person) => {
       res.status(200).json(person);
     }).catch((err) => {
-      res.status(400).json(err);
+      res.status(400).json(err.toString());
     });
 }
 

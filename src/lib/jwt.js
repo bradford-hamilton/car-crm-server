@@ -8,6 +8,14 @@ class Jwt {
         reject(err);
       }));
   }
+
+  static verify(token) {
+    return new Promise((resolve, reject) =>
+      jwt.verify(token, process.env.TOKEN_SECRET, (err, decoded) => {
+        if (decoded) resolve(decoded);
+        reject(err);
+      }));
+  }
 }
 
 export default Jwt;
