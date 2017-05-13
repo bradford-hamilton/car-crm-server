@@ -1,14 +1,22 @@
 language: node_js
 node_js:
-  - "7.0"
+- '7.0'
 services:
-  - postgresql
+- postgresql
 before_script:
-  - psql -c 'create database car_crm_test;' -U postgres
+- psql -c 'create database car_crm_test;' -U postgres
 install:
-  - npm install -g knex
-  - npm install
+- npm install -g knex
+- npm install
 script:
-  - knex migrate:latest --env test
-  - knex seed:run --env test
-  - npm test
+- knex migrate:latest --env test
+- knex seed:run --env test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: RJ0RqjJ27bHWuEZq4F241ql+Faw61b7bNxs7eloVt1qSgkyho0AjOHEZO5xjxPjJdRqnkEFoRSf6QvWS7iO45Y53rIjxtW4pQkFhA95Tm+lclXU5go2MEAZQ4qxr9+fPI2evDvBnVNsgxdfWNy3qqCq2sYKVJwGIRnD3I31Tr5Z4jl/4TMWojgLviyNbSEtQu6bh8EWN/Np6qmfRXUDovl7KIpm/Ho+hsP87qPKUYRlvpYg4Wrp4KVEHxdBaBWQCOXv+e6MIAvIm3eKK9Zs6drldE+E7oUeNdB4AVcabfAx4hpvYnP7d8YNRt7DaSk9wBOiehj06XGVA7tI6tJgzsiL0e8TCh/EOcXetAEOWCrcVBlWLK45WOoUMfS7/2gIsQyazmvW16DSpGFJ2utW8GaeiuqQohNSDhkuKXfxc2Q5NrOd2/yT85DKzDWNHai0WJsE6p+imQIwxZLDYiWWmSXInNjwOAfKeUOjf0UQCq1m0O5Uk+CUUlfRUXXIQc3chJ+0GBDYmksWQgkLoW5yMvHvrGLbF2jFcyZt3Oxz8cQdrVFg0+xZOCbf1da77bthRUj++kfdsS/kA7+wwcCLz6/WbPmQL0HQg/EW+XePbvOQurLBuIp+aWwHJO+rA9Fc8NosjrREqsL2dB0BgUeNVPkK/zDE2YXYBzGDOMglNlVs=
+  app:
+    master: car-crm-staging
+  run:
+  - knex migrate:latest
