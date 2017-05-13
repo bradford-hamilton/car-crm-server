@@ -13,7 +13,7 @@
     "node": "7.9.0"
   },
   "scripts": {
-    "prestart": "knex migrate:latest",
+    "postinstall": "npm run build",
     "start": "node dist/src/server.js",
     "build": "npm run clean && babel . -d dist --ignore node_modules, test",
     "clean": "rm -rf dist && mkdir dist",
@@ -26,6 +26,9 @@
   },
   "dependencies": {
     "axios": "0.16.1",
+    "babel-cli": "6.24.1",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-stage-2": "6.24.1",
     "bcryptjs": "2.4.3",
     "body-parser": "1.17.1",
     "chai": "3.5.0",
@@ -64,9 +67,6 @@
     "sinon-chai": "2.9.0"
   },
   "devDependencies": {
-    "babel-cli": "6.24.1",
-    "babel-preset-es2015": "6.24.1",
-    "babel-preset-stage-2": "6.24.1",
     "eslint": "3.19.0",
     "eslint-config-airbnb-base": "11.1.3",
     "eslint-plugin-import": "2.2.0",

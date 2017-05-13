@@ -49,6 +49,4 @@ describe('Persons Class', () => {
       })
     });
   });
-
-
 });
