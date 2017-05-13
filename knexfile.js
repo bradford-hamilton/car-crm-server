@@ -20,7 +20,7 @@ module.exports = {
 
   staging: {
     client: 'pg',
-    connection: '',
+    connection: `${process.env.DATABASE_URL}?ssl=true`,
     migrations: {
       directory: `${__dirname}/db/migrations`,
     },
