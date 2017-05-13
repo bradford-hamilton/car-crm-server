@@ -11,27 +11,19 @@ class Persons {
   }
 
   static getAllPersons() {
-    return DB.getAllPersons()
-      .then(data => data)
-      .catch(err => err);
+    return DB.getAllPersons();
   }
 
   static getPerson(id) {
-    return DB.getPerson(id)
-      .then(data => data)
-      .catch(err => err);
+    return DB.getPerson(id);
   }
 
   static updatePerson(person) {
-    return DB.updatePerson(person)
-      .then(data => data)
-      .catch(err => err);
+    return DB.updatePerson(person);
   }
 
   static deletePerson(id) {
-    return DB.deletePerson(id)
-      .then(data => data)
-      .catch(err => err);
+    return DB.deletePerson(id);
   }
 }
 

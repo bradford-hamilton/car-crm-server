@@ -9,8 +9,6 @@ import {
 
 require('../../test.setup')();
 
-let sandbox;
-
 describe('Persons Class', () => {
   before(() => {
     return Promise.resolve(knex.raw('TRUNCATE persons RESTART IDENTITY CASCADE'));
