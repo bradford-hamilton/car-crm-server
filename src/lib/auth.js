@@ -29,7 +29,9 @@ class Auth {
     // guard: if user is on login page, do not require a verification
     if (req.url === '/api/v1/persons/login') return next();
 
-    const splitToken = req.headers.auth.substring(7);
+    const splitToken = req.headers &&
+                       req.headers.auth ?
+                       req.headers.auth.substring(7) : null;
 
     return Jwt.verify(splitToken)
       .then(() => next())
